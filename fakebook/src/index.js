@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import NavBarComponent from './NavBar';
+import SignUp from './SignUp';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
   <link
@@ -15,6 +16,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 ReactDOM.render(
   <React.StrictMode>
     <NavBarComponent />
+    <SignUp />
     <App />
   </React.StrictMode>,
   document.getElementById('root')

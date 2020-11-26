@@ -17,6 +17,19 @@
   margin-top: 10vh; 
 }
 
+
+.main-sign-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  min-width: 300px;
+  border-style: double;
+  border-width: medium;
+  padding: 20px;
+}
+
 .App-link {
   color: #61dafb;
 }
