@@ -13,23 +13,8 @@
   }
 }
 
-.NavBar-header {
-  background-color: #282c34;
-  position: fixed; /* These three lines are required to fix the bar to the top when scrolling */
-  top: 0; /* These three lines are required to fix the bar to the top when scrolling */
-  width: 100%; /* These three lines are required to fix the bar to the top when scrolling */
-  min-height: 20vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-/* Main content */
 .main {
-  margin-top: 20vh; /* Add a bottom margin to avoid content overlay */
+  margin-top: 10vh; 
 }
 
 .App-link {
