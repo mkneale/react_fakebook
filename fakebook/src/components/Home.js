@@ -1,7 +1,7 @@
-import './style.css';
+import '../style.css';
 import React from 'react';
 
- export default class App extends React.Component {
+ export default class Home extends React.Component {
    render() { return (
         <p>
         Hello world!

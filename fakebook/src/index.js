@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import './index.css';
-import App from './App';
-import NavBarComponent from './NavBar';
-import SignUp from './SignUp';
+import App from './App.js';
+import {Routes} from './Routes';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
   <link
@@ -14,11 +14,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
   />
 
 ReactDOM.render(
-  <React.StrictMode>
-    <NavBarComponent />
-    <SignUp />
-    <App />
-  </React.StrictMode>,
+    <Router>
+      <Routes />
+    </Router>,
   document.getElementById('root')
 );
 
