@@ -3,8 +3,10 @@ import React from 'react';
 
  export default class Home extends React.Component {
    render() { return (
-        <p>
-        Hello world!
-        </p>
+        <div className="main">
+          <p>
+            Hello world!
+          </p>
+        </div>
     );
 }}
