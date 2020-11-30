@@ -1,13 +1,10 @@
 import './style.css';
+import React from 'react';
 
-function App() {
-    return (
-        <div className="App">
-            <div class="main">
-                
-            </div>
-        </div>
+ export default class App extends React.Component {
+   render() { return (
+        <p>
+        Hello world!
+        </p>
     );
-}
-
-export default App;
+}}
