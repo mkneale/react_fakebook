@@ -1,7 +1,7 @@
 import '../style.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 
 function SignUp() {
 
@@ -19,7 +19,7 @@ function SignUp() {
         postUser(email, name, password);
     }
 
-    
+
 
         async function postUser(user, name, password) {
             const url = 'http://localhost:3080/users'
@@ -35,7 +35,7 @@ function SignUp() {
             })
             .catch(function(error) {
             });
-            }   
+            }
 
 
     return (
