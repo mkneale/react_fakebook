@@ -27,7 +27,11 @@ class Posts extends React.Component {
             (result) => {
               this.setState({
                 isLoaded: true,
-                items: result.posts
+                items: result.posts.sort((a, b) => {
+                  if (a.date > b.date) return -1;
+                  if (a.date < b.date) return 1;
+                  return 0;
+                })
               });
             },
             (error) => {
