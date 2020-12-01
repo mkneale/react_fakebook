@@ -1,12 +1,12 @@
 import '../style.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import React, {useState, localStorage} from 'react';
+import React, {useState} from 'react';
 
 
 function SignIn() {
 
-    
+
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [user, setUser] = useState();
@@ -18,7 +18,7 @@ function SignIn() {
       setPassword(password);
       postUser(name, password);
       console.log('user: ', user);
-    } 
+    }
 
     async function postUser(name, password) {
       const url = 'http://localhost:3080/users/login'
@@ -43,7 +43,7 @@ function SignIn() {
     if (user) {
       return <div class='main'>{user.name} is logged in </div>
     }
-      
+
       return (
         <div className="SignIn" class="main-sign-box">
             <h2>Sign In</h2>

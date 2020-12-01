@@ -11,12 +11,12 @@ class Posts extends React.Component {
             items: [],
             user: null
         };
-        
+
     }
-    
+
 
     componentDidMount() {
-        
+
         // const loggedInUser = window.localStorage.getItem('user');
         this.setState({user: window.localStorage.getItem('user')})
         console.log(this.user);
@@ -37,10 +37,10 @@ class Posts extends React.Component {
               });
             }
           )
-          
+
     }
 
-    render () { 
+    render () {
         const { error, isLoaded, items, user } = this.state;
         if (error) {
             return <div>Error: {error.message}</div>
@@ -54,7 +54,11 @@ class Posts extends React.Component {
                     <ul>
                         {items.map(post => (
                                 <li key={post._id}>
-                                    <span>{post.message}</span>
+                                    <span>{post.message} <br></br>
+                                    @{(post.date.split("T")[1]).slice(0,5)},
+                                     {" "}{(post.date.split("T")[0]).slice(-2)}/
+                                     {(post.date.split("T")[0]).slice(-5, -3)}/
+                                     {(post.date.split("T")[0]).slice(0, 4)}</span>
                                 </li>
                         ))}
                     </ul>
