@@ -17,7 +17,9 @@ function SignIn() {
       setName(name);
       setPassword(password);
       postUser(name, password);
+
       //console.log('user: ', user);
+      
     }
 
     async function postUser(name, password) {

@@ -6,7 +6,7 @@ function App() {
 
      return (
         <p>
-        You need to logged in to do anything here!
+        Hello world!
         </p>
     );
 }
