@@ -40,7 +40,7 @@ function SignUp() {
 
 
     return (
-        <div className="SignUp" class="main-sign-box">
+        <div className="main-sign-box">
             <h2>Sign Up</h2>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formBasicName">
