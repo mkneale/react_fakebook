@@ -59,7 +59,8 @@ class Posts extends React.Component {
                         {items.map(post => (
                                 <li key={post._id}>
                                     <span>{post.message} <br></br>
-                                    @{(post.date.split("T")[1]).slice(0,5)},
+                                    {post.author}{" "}
+                                     @{" "}{(post.date.split("T")[1]).slice(0,5)},
                                      {" "}{(post.date.split("T")[0]).slice(-2)}/
                                      {(post.date.split("T")[0]).slice(-5, -3)}/
                                      {(post.date.split("T")[0]).slice(0, 4)}</span>
