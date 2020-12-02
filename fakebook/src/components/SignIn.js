@@ -17,7 +17,9 @@ function SignIn() {
       setName(name);
       setPassword(password);
       postUser(name, password);
-      console.log('user: ', user);
+
+      //console.log('user: ', user);
+      
     }
 
     async function postUser(name, password) {
@@ -28,7 +30,7 @@ function SignIn() {
         body: JSON.stringify({name:name, password:password}),
         headers: {'Content-Type': 'application/json'},
        })
-      .then(function(resp) { return resp.json() }) // Convert data to json
+      .then(function(resp) { return resp.text() }) // Convert data to json
       .then(function(data) {
         console.log('Success', data);
         setUser(data);

@@ -17,6 +17,7 @@ function SignUp() {
         setPassword(password);
         console.log(email, password);
         postUser(email, name, password);
+        alert(`Thank you ${name} for signing up. Please sign in.`)
     }
 
 
