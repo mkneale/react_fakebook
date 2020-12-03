@@ -42,11 +42,70 @@
     transform: rotate(360deg);
   }
 }
-
+.commentButton {
+  background-color: #294185!important;
+  border-color: black!important;
+  }
 .commentsList {
   list-style-type: none;
 }
 
 .breaklines {
   white-space: break-spaces;
+  font-weight: bold;
+
+}
+.frontPage {
+  background-color: #2c55c7;
+  color: white;
+  text-align: center;
+  font-family: Impact, sans-serif;
+
+}
+
+html{
+  background-color: #2c55c7;
+  color: white;
+}
+
+.indPost{
+  color: black;
+  background-color: white!important;
+}
+.italics {
+font-style: italic;
+}
+
+li {
+  list-style-type: none;
+}
+.loggedIn{
+  background-color: #2c55c7;
+  color: white;
+  text-align: center;
+  font-family: Impact, sans-serif;
+  margin-top: 20%;
+  font-size: 30px;
+}
+.main-sign-box {
+  background-color: white;
+}
+
+navbar{
+z-index: 99;
+}
+.postBackground {
+  background-color: #2c55c7;
+  color: white;
+}
+.postBorder {
+  border: 2px solid #d5d5db;
+  padding: 20px;
+  background-color: white;
+  color: black;
+  margin-right: 5%;
+}
+
+.title{
+  font-family: Impact, sans-serif;
 }

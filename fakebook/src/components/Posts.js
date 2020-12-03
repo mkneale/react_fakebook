@@ -1,5 +1,6 @@
 import React, { localStorage, useState } from 'react';
 import SinglePost from './SinglePost';
+import '../style.css';
 
 
 class Posts extends React.Component {
@@ -61,11 +62,13 @@ class Posts extends React.Component {
         } else {
             return (
                 <div className="main">
+                <div className="postBackground">
                     <ul>
                         {items.map(post => (
-                          < SinglePost post={post} user_id={user_id} user_name={user_name}/>
+                         < SinglePost post={post} user_id={user_id} user_name={user_name}/>
                         ))}
                     </ul>
+                </div>
                 </div>
             );
         }

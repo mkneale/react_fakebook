@@ -43,7 +43,7 @@ function SignIn() {
       } //async
 
     if (user) {
-      return <div className='main'>{name} is logged in </div>
+      return <div className='loggedIn'>{name} is logged in </div>
     }
 
       return (
@@ -61,7 +61,7 @@ function SignIn() {
                     <Form.Group controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Remember Me" />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button className="commentButton" type="submit">
                         Submit
                     </Button>
                 </Form>

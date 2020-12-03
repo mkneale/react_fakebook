@@ -6,7 +6,7 @@ function SignOut () {
     window.localStorage.clear();
 
     return (
-         <div className="main">You have been signed out</div>
+         <div className='loggedIn'>You have been signed out</div>
     )
 
 }

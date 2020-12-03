@@ -5,7 +5,7 @@ class Comment extends Component {
         return (
             <div> <ul className="commentsList">
                 <li key={this.props.comment._id}>
-                     <span>{this.props.comment.comment} <br></br>
+                     <span className="italics">{this.props.comment.comment} <br></br>
                     {this.props.comment.author}{" "}
                     @{" "}{(this.props.comment.date.split("T")[1]).slice(0,5)},
                     {" "}{(this.props.comment.date.split("T")[0]).slice(-2)}/
