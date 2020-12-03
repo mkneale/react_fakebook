@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Comment from './Comment';
 import AddComment from './AddComment';
 import '../style.css';
+import Like from './Likes';
 
 class SinglePost extends Component {
 
@@ -40,6 +41,7 @@ class SinglePost extends Component {
                     {(this.props.post.date.split("T")[0]).slice(-5, -3)}/
                     {(this.props.post.date.split("T")[0]).slice(0, 4)}</span>
                     < AddComment postOfReqId={this.props.post._id} />
+                    < Like likes={this.props.post.likes} post_id={this.props.post._id} user_id={this.props.user_id} user_name={this.props.user_name}/> 
                     {items.map(comment => (
                           < Comment comment={comment}/>
                         ))}
