@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Comment from './Comment';
+import AddComment from './AddComment';
 
 class SinglePost extends Component {
 
@@ -18,7 +19,7 @@ class SinglePost extends Component {
               this.setState({
                 items: result.comments
               })
-              
+
             },
             (error) => {
                 throw error;
@@ -36,10 +37,11 @@ class SinglePost extends Component {
                     @{" "}{(this.props.post.date.split("T")[1]).slice(0,5)},
                     {" "}{(this.props.post.date.split("T")[0]).slice(-2)}/
                     {(this.props.post.date.split("T")[0]).slice(-5, -3)}/
-                    {(this.props.post.date.split("T")[0]).slice(0, 4)}</span>    
+                    {(this.props.post.date.split("T")[0]).slice(0, 4)}</span>
+                    < AddComment postOfReqId={this.props.post._id} />
                     {items.map(comment => (
                           < Comment comment={comment}/>
-                        ))}          
+                        ))}
                 </li>
             </div>
         )
