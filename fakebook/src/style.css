@@ -14,7 +14,7 @@
 }
 
 .main {
-  margin-top: 10vh; 
+  margin-top: 10vh;
 }
 
 
@@ -41,4 +41,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.commentsList {
+  list-style-type: none;
+}
+
+.breaklines {
+  white-space: break-spaces;
 }

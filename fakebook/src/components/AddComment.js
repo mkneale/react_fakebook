@@ -1,13 +1,10 @@
-import '../style.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import React, {useState} from 'react';
-import { useHistory } from 'react-router-dom';
 
-function NewPost(){
+function AddComment({postOfReqId}){
 
-  let history = useHistory();
-  const [message, setMessage] = useState("");
+  const [comment, setComment] = useState("");
 
   function refreshPage() {
     window.location.reload(false);
@@ -16,19 +13,19 @@ function NewPost(){
   const handleSubmit = (evt) => {
       console.log("handleSubmit is fired");
       evt.preventDefault();
-      setMessage(message);
+      setComment(comment);
       var retrievedObject = localStorage.getItem('user');
-      postPost(JSON.parse(retrievedObject)._id, JSON.parse(retrievedObject).name, message);
-      history.push('/posts');
-      refreshPage();
+
+       postComment(postOfReqId, JSON.parse(retrievedObject).name, comment);
+       refreshPage();
   }
 
-  async function postPost(userId, author, message) {
-      const url = 'http://localhost:3080/posts'
+  async function postComment(postId, author, comment) {
+      const url = 'http://localhost:3080/comments'
       await fetch(url, {
         method: 'POST',
         mode: 'cors',
-        body: JSON.stringify({userId: userId, message: message, author: author}),
+        body: JSON.stringify({postId: postId, comment: comment, author: author}),
         headers: {'Content-Type': 'application/json'},
        })
       .then(function(resp) { return resp.json() }) // Convert data to json
@@ -41,18 +38,16 @@ function NewPost(){
 
 
   if (!window.localStorage.getItem('user')) {
-    return <div className='main'>Please sign in to post!</div>
+    return <div className='main'>Please sign in to comment!</div>
   };
 
   return (
-    <div className="main-sign-box">
-        <h2>Share a Post</h2>
+    <div>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
-                    <Form.Label>Post Body</Form.Label>
-                    <Form.Control as="textarea" rows={3} placeholder="Type a post" value={message} onChange={e => setMessage(e.target.value)}/>
+                    <Form.Control style={{width: "20%"}} type="text" placeholder="Type a comment" value={comment} onChange={e => setComment(e.target.value)}/>
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" size="sm">
                     Submit
 
                 </Button>
@@ -60,6 +55,7 @@ function NewPost(){
     </div>
 
   );
-}
+};
 
-export default NewPost;
+
+export default AddComment;
