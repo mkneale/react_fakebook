@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Comment from './Comment';
+import Like from './Likes';
 
 class SinglePost extends Component {
 
@@ -36,7 +37,8 @@ class SinglePost extends Component {
                     @{" "}{(this.props.post.date.split("T")[1]).slice(0,5)},
                     {" "}{(this.props.post.date.split("T")[0]).slice(-2)}/
                     {(this.props.post.date.split("T")[0]).slice(-5, -3)}/
-                    {(this.props.post.date.split("T")[0]).slice(0, 4)}</span>    
+                    {(this.props.post.date.split("T")[0]).slice(0, 4)}</span>   
+                    < Like likes={this.props.post.likes} post_id={this.props.post._id} user_id={this.props.user_id} user_name={this.props.user_name}/> 
                     {items.map(comment => (
                           < Comment comment={comment}/>
                         ))}          
