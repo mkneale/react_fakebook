@@ -14,6 +14,7 @@ function NavBarComponent() {
                         <Nav.Link href="/signup">Sign Up</Nav.Link>
                         <Nav.Link href="/posts">Posts</Nav.Link>
                         <Nav.Link href="/signout">Sign Out</Nav.Link>
+                        <Nav.Link href="/newpost">Share Post</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                     </Navbar>
