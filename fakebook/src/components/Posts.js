@@ -19,7 +19,7 @@ class Posts extends React.Component {
 
         // const loggedInUser = window.localStorage.getItem('user');
         this.setState({user: window.localStorage.getItem('user')})
-        console.log(this.user);
+        // console.log(this.user);
 
           fetch("http://localhost:3080/posts", {mode: 'cors', method: 'GET'})
           .then(res => res.json())
@@ -44,6 +44,29 @@ class Posts extends React.Component {
 
     }
 
+    getCommentsByPost(postId) {
+
+      fetch("http://localhost:3080/comments/" + postId, {mode: 'cors', method: 'GET'})
+          .then(res => res.json())
+          .then(
+            (result) => {
+              console.log(result.comments)
+              return result.comments
+                //   return result.comments.sort((a, b) => {
+                //   if (a.date > b.date) return -1;
+                //   if (a.date < b.date) return 1;
+                //   return 0;
+                // })  
+            },
+            (error) => {
+              this.setState({
+                isLoaded: true,
+                error
+              });
+            }
+          )
+    }
+
     render () {
         const { error, isLoaded, items, user } = this.state;
         if (error) {
@@ -64,6 +87,19 @@ class Posts extends React.Component {
                                      {" "}{(post.date.split("T")[0]).slice(-2)}/
                                      {(post.date.split("T")[0]).slice(-5, -3)}/
                                      {(post.date.split("T")[0]).slice(0, 4)}</span>
+                                     <ul>
+                                      {console.log(this.getCommentsByPost(post._id))}
+                                      {this.getCommentsByPost(post._id).map(comment => (
+                                        <li key={comment._id}>
+                                          <span>{comment.comment} <br></br>
+                                          {comment.author}{" "}
+                                          @{" "}{(comment.date.split("T")[1]).slice(0,5)},
+                                          {" "}{(comment.date.split("T")[0]).slice(-2)}/
+                                          {(comment.date.split("T")[0]).slice(-5, -3)}/
+                                          {(comment.date.split("T")[0]).slice(0, 4)}</span>
+                                         </li>
+                                        ))}
+                                      </ul>
                                 </li>
                         ))}
                     </ul>
