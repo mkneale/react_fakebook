@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Comment from './Comment';
-import Like from './Like';
+import Like from './Likes';
 
 class SinglePost extends Component {
 
