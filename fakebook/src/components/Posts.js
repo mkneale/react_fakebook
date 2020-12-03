@@ -1,4 +1,5 @@
 import React, { localStorage, useState } from 'react';
+import SinglePost from './SinglePost';
 
 
 class Posts extends React.Component {
@@ -9,7 +10,7 @@ class Posts extends React.Component {
             error: null,
             isLoaded: false,
             items: [],
-            user: null
+            user: null,
         };
 
     }
@@ -17,9 +18,7 @@ class Posts extends React.Component {
 
     componentDidMount() {
 
-        // const loggedInUser = window.localStorage.getItem('user');
         this.setState({user: window.localStorage.getItem('user')})
-        console.log(this.user);
 
           fetch("http://localhost:3080/posts", {mode: 'cors', method: 'GET'})
           .then(res => res.json())
@@ -33,6 +32,7 @@ class Posts extends React.Component {
                   return 0;
                 })
               });
+              return result.posts;
             },
             (error) => {
               this.setState({
@@ -41,7 +41,6 @@ class Posts extends React.Component {
               });
             }
           )
-
     }
 
     render () {
@@ -57,14 +56,7 @@ class Posts extends React.Component {
                 <div className="main">
                     <ul>
                         {items.map(post => (
-                                <li key={post._id}>
-                                    <span>{post.message} <br></br>
-                                    {post.author}{" "}
-                                     @{" "}{(post.date.split("T")[1]).slice(0,5)},
-                                     {" "}{(post.date.split("T")[0]).slice(-2)}/
-                                     {(post.date.split("T")[0]).slice(-5, -3)}/
-                                     {(post.date.split("T")[0]).slice(0, 4)}</span>
-                                </li>
+                          < SinglePost post={post}/>
                         ))}
                     </ul>
                 </div>
