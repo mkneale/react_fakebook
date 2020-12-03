@@ -43,11 +43,11 @@ function SignIn() {
       } //async
 
     if (user) {
-      return <div class='main'>{user.name} is logged in </div>
+      return <div className='main'>{name} is logged in </div>
     }
 
       return (
-        <div className="SignIn" class="main-sign-box">
+        <div className="main-sign-box">
             <h2>Sign In</h2>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formBasicName">
