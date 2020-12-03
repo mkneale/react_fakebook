@@ -11,6 +11,8 @@ class Posts extends React.Component {
             isLoaded: false,
             items: [],
             user: null,
+            user_id: null,
+            user_name: null
         };
 
     }
@@ -18,7 +20,12 @@ class Posts extends React.Component {
 
     componentDidMount() {
 
-        this.setState({user: window.localStorage.getItem('user')})
+      var retrievedObject = window.localStorage.getItem('user');
+      var userJSON = {user_id: JSON.parse(retrievedObject)._id, user_name: JSON.parse(retrievedObject).name};
+      this.setState({user_id: userJSON.user_id});
+      this.setState({user_name: userJSON.user_name});
+
+        this.setState({user: JSON.stringify(userJSON)})
 
           fetch("http://localhost:3080/posts", {mode: 'cors', method: 'GET'})
           .then(res => res.json())
@@ -44,7 +51,7 @@ class Posts extends React.Component {
     }
 
     render () {
-        const { error, isLoaded, items, user } = this.state;
+        const { error, isLoaded, items, user, user_id, user_name } = this.state;
         if (error) {
             return <div>Error: {error.message}</div>
         } else if (!isLoaded) {
@@ -56,7 +63,7 @@ class Posts extends React.Component {
                 <div className="main">
                     <ul>
                         {items.map(post => (
-                          < SinglePost post={post}/>
+                          < SinglePost post={post} user_id={user_id} user_name={user_name}/>
                         ))}
                     </ul>
                 </div>
