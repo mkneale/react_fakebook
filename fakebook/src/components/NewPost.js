@@ -9,13 +9,18 @@ function NewPost(){
   let history = useHistory();
   const [message, setMessage] = useState("");
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   const handleSubmit = (evt) => {
       console.log("handleSubmit is fired");
       evt.preventDefault();
       setMessage(message);
       var retrievedObject = localStorage.getItem('user');
       postPost(JSON.parse(retrievedObject)._id, JSON.parse(retrievedObject).name, message);
-      history.push('/posts')
+      history.push('/posts');
+      refreshPage();
   }
 
   async function postPost(userId, author, message) {
@@ -45,7 +50,7 @@ function NewPost(){
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label>Post Body</Form.Label>
-                    <Form.Control type="textarea" placeholder="Type a post" value={message} onChange={e => setMessage(e.target.value)}/>
+                    <Form.Control as="textarea" rows={3} placeholder="Type a post" value={message} onChange={e => setMessage(e.target.value)}/>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit

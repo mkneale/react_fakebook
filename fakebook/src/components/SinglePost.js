@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Comment from './Comment';
 import AddComment from './AddComment';
+import '../style.css';
 
 class SinglePost extends Component {
 
@@ -32,7 +33,7 @@ class SinglePost extends Component {
         return (
             <div>
                 <li key={this.props.post._id}>
-                     <span>{this.props.post.message} <br></br>
+                     <span className="breaklines">{this.props.post.message} <br></br>
                     {this.props.post.author}{" "}
                     @{" "}{(this.props.post.date.split("T")[1]).slice(0,5)},
                     {" "}{(this.props.post.date.split("T")[0]).slice(-2)}/
