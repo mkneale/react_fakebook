@@ -11,13 +11,10 @@ class SinglePost extends Component {
 }
     componentDidMount() {
 
-        this.setState({user: window.localStorage.getItem('user')})
-
           fetch(`http://localhost:3080/comments/${this.props.post._id}`, {mode: 'cors', method: 'GET'})
           .then(res => res.json())
           .then(
             (result) => {
-              console.log(result.comments)
               this.setState({
                 items: result.comments
               })
@@ -42,7 +39,6 @@ class SinglePost extends Component {
                     {(this.props.post.date.split("T")[0]).slice(0, 4)}</span>    
                     {items.map(comment => (
                           < Comment comment={comment}/>
-                          
                         ))}          
                 </li>
             </div>

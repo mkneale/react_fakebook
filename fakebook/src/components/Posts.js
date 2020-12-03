@@ -18,32 +18,6 @@ class Posts extends React.Component {
 
     componentDidMount() {
 
-        //set up some fetch promises
-
-        // Promise.all([
-        //   fetch("http://localhost:3080/posts", {mode: 'cors', method: 'GET'}),
-        //   fetch("http://localhost:3080/comments", {mode: 'cors', method: 'GET'})
-        // ])
-        // .then(([res1, res2]) =>
-        //   Promise.all([res1.json(), res2.json()])
-        // )
-        // .then(([posts, comments]) => {
-          
-        //   const comArray = Object.entries(comments);
-        //   console.log(comments.comments[0].postId);
-        //   console.log(comArray[0]);
-        //   this.setState({
-        //     commentsItems: [{
-        //       postId: comments.comments[0].postId, 
-        //       commentText: comments.comments[0].comment 
-        //     }]
-        //   });
-
-        // }
-          
-        // )
-      
-        // const loggedInUser = window.localStorage.getItem('user');
         this.setState({user: window.localStorage.getItem('user')})
 
           fetch("http://localhost:3080/posts", {mode: 'cors', method: 'GET'})
@@ -67,11 +41,6 @@ class Posts extends React.Component {
               });
             }
           )
-          .then((posts) => {
-            console.log(posts);
-          }
-           )
-
     }
 
     render () {
@@ -88,7 +57,6 @@ class Posts extends React.Component {
                     <ul>
                         {items.map(post => (
                           < SinglePost post={post}/>
-                          
                         ))}
                     </ul>
                 </div>
