@@ -1,4 +1,5 @@
 import React, { localStorage, useState } from 'react';
+import SinglePost from './SinglePost';
 
 
 class Posts extends React.Component {
@@ -10,7 +11,6 @@ class Posts extends React.Component {
             isLoaded: false,
             items: [],
             user: null,
-            commentsItems: []
         };
 
     }
@@ -75,7 +75,7 @@ class Posts extends React.Component {
     }
 
     render () {
-        const { error, isLoaded, items, user, commentsItems } = this.state;
+        const { error, isLoaded, items, user } = this.state;
         if (error) {
             return <div>Error: {error.message}</div>
         } else if (!isLoaded) {
@@ -87,15 +87,8 @@ class Posts extends React.Component {
                 <div className="main">
                     <ul>
                         {items.map(post => (
-                                <li key={post._id}>
-                                    <span>{post.message} <br></br>
-                                    {post.author}{" "}
-                                     @{" "}{(post.date.split("T")[1]).slice(0,5)},
-                                     {" "}{(post.date.split("T")[0]).slice(-2)}/
-                                     {(post.date.split("T")[0]).slice(-5, -3)}/
-                                     {(post.date.split("T")[0]).slice(0, 4)}</span>
-                                     
-                                </li>
+                          < SinglePost post={post}/>
+                          
                         ))}
                     </ul>
                 </div>
