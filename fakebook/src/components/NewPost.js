@@ -50,7 +50,7 @@ function NewPost(){
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label>Post Body</Form.Label>
-                    <Form.Control as="textarea" rows={3} placeholder="Type a post" value={message} onChange={e => setMessage(e.target.value)}/>
+                    <Form.Control as="textarea" rows={3} placeholder="Type a post" value={message} onChange={e => setMessage(e.target.value)} required/>
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Submit
