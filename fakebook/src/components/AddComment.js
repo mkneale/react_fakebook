@@ -1,12 +1,14 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import React, {useState} from 'react';
-import { useHistory } from 'react-router-dom';
 
 function AddComment({postOfReqId}){
 
-  let history = useHistory();
   const [comment, setComment] = useState("");
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   const handleSubmit = (evt) => {
       console.log("handleSubmit is fired");
@@ -15,7 +17,7 @@ function AddComment({postOfReqId}){
       var retrievedObject = localStorage.getItem('user');
 
        postComment(postOfReqId, JSON.parse(retrievedObject).name, comment);
-      history.push('/posts')
+      refreshPage();
   }
 
   async function postComment(postId, author, comment) {
