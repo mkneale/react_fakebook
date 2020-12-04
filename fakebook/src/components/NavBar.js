@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 function NavBarComponent() {
     return (
         <div className="NavBar">
-                <Navbar bg="light" expand="lg" fixed="top">
+                <Navbar variant="dark" style={{backgroundColor: "rgba(45, 85, 199, 1)"}} expand="lg" fixed="top" className="title">
                     <Navbar.Brand href="/home">FakeBook</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">

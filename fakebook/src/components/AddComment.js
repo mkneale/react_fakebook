@@ -17,7 +17,7 @@ function AddComment({postOfReqId}){
       var retrievedObject = localStorage.getItem('user');
 
        postComment(postOfReqId, JSON.parse(retrievedObject).name, comment);
-       refreshPage();
+      refreshPage();
   }
 
   async function postComment(postId, author, comment) {
@@ -45,9 +45,9 @@ function AddComment({postOfReqId}){
     <div>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
-                    <Form.Control style={{width: "20%"}} type="text" placeholder="Type a comment" value={comment} onChange={e => setComment(e.target.value)}/>
+                    <Form.Control type="text" style = {{width:"50%"}} placeholder="Type a comment" value={comment} onChange={e => setComment(e.target.value)}/>
                 </Form.Group>
-                <Button variant="primary" type="submit" size="sm">
+                <Button className="commentButton" type="submit">
                     Submit
 
                 </Button>
