@@ -32,10 +32,14 @@ function SignIn() {
        })
       .then(function(resp) { return resp.text() }) // Convert data to json
       .then(function(data) {
+        if (data === "Wrong username or password.") {
+          return;
+        } else {
         console.log('Success', data);
         setUser(data);
         window.localStorage.setItem('user', data);
         console.log(window.localStorage.getItem('user'));
+        }
       })
       .catch(function(error) {
         console.log('Error', error);
