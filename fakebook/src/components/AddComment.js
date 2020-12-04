@@ -44,11 +44,11 @@ function AddComment({postOfReqId}){
   return (
     <div>
             <Form onSubmit={handleSubmit}>
-                <Form.Group>
-                    <Form.Control style={{width: "20%"}} type="text" placeholder="Type a comment" value={comment} onChange={e => setComment(e.target.value)} required/>
-                </Form.Group>
-                <Button variant="primary" type="submit" size="sm">
-                    Submit
+                <Form.Group className="form">
+                    <Form.Control style={{width: "100%"}} type="text" placeholder="Type a comment" value={comment} onChange={e => setComment(e.target.value)} required/>
+                </Form.Group> &nbsp;&nbsp;
+                <Button className="commentButton" type="submit" size="sm">
+                    Comment
 
                 </Button>
             </Form>

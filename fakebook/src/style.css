@@ -42,9 +42,21 @@
     transform: rotate(360deg);
   }
 }
+.boldText{
+  white-space: nowrap;
+display:flex;
+padding-top: 15px;
+
+}
 .commentButton {
   background-color: #294185!important;
   border-color: black!important;
+  display: inline;
+  margin-right: 30px;
+  }
+
+  .form {
+    display: inline-block;
   }
 .commentsList {
   list-style-type: none;
@@ -52,7 +64,8 @@
 
 .breaklines {
   white-space: break-spaces;
-  font-weight: bold;
+  font-size: 15px;
+  padding-bottom: 10px;
 
 }
 .frontPage {
@@ -74,6 +87,7 @@ html{
 }
 .italics {
 font-style: italic;
+padding-bottom: 20px;
 }
 
 li {
@@ -91,6 +105,12 @@ li {
   background-color: white;
 }
 
+.messageBox{
+  font-weight: bolder;
+  font-size: 25px;
+
+}
+
 navbar{
 z-index: 99;
 }
@@ -104,6 +124,14 @@ z-index: 99;
   background-color: white;
   color: black;
   margin-right: 5%;
+}
+
+.postHeading {
+  background-color: #2c55c7;
+  color: white;
+  text-align: center;
+  font-family: Impact, sans-serif;
+  margin: 0 auto;
 }
 
 .title{
