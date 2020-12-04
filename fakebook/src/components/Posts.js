@@ -53,6 +53,7 @@ class Posts extends React.Component {
     }
 
     render () {
+
         const { error, isLoaded, items, user, user_id, user_name } = this.state;
         if (error) {
             return <div>Error: {error.message}</div>
@@ -63,6 +64,7 @@ class Posts extends React.Component {
         } else {
             return (
                 <div className="main">
+                <h1 className="postHeading">Posts</h1>
                 <div className="postBackground">
                     <ul>
                         {items.map(post => (
