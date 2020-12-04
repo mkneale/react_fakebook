@@ -8,6 +8,7 @@ function SignUp() {
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
+    const [user, setUser] = useState();
 
     const handleSubmit = (evt) => {
         console.log("handleSubmit is fired");
@@ -17,7 +18,8 @@ function SignUp() {
         setPassword(password);
         console.log(email, password);
         postUser(email, name, password);
-        alert(`Thank you ${name} for signing up. Please sign in.`)
+        //alert(`Thank you ${name} for signing up. Please sign in.`)
+
     }
 
 
@@ -30,14 +32,19 @@ function SignUp() {
               body: JSON.stringify({email:email, name:name, password:password}),
               headers: {'Content-Type': 'application/json'},
              })
-            .then(function(resp) { return resp.json() }) // Convert data to json
+            .then(function(resp) { return resp.text() }) // Convert data to json
             .then(function(data) {
-              console.log('Success', data);
+                console.log('Success', data);
+                setUser(data);
+                window.localStorage.setItem('user', data);
+                console.log(window.localStorage.getItem('user'));
             })
             .catch(function(error) {
             });
             }
-
+            if (user) {
+                return <div className='loggedIn'>Thank you for signing up.  {name} is logged in </div>
+              }
 
     return (
         <div className="main-sign-box">
