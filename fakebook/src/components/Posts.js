@@ -21,13 +21,14 @@ class Posts extends React.Component {
 
     componentDidMount() {
 
+     
       var retrievedObject = window.localStorage.getItem('user');
-      var userJSON = {user_id: JSON.parse(retrievedObject)._id, user_name: JSON.parse(retrievedObject).name};
-      this.setState({user_id: userJSON.user_id});
-      this.setState({user_name: userJSON.user_name});
-
+      if (retrievedObject) {
+        var userJSON = {user_id: JSON.parse(retrievedObject)._id, user_name: JSON.parse(retrievedObject).name};
+        this.setState({user_id: userJSON.user_id});
+        this.setState({user_name: userJSON.user_name});
         this.setState({user: JSON.stringify(userJSON)})
-
+      }
           fetch("http://localhost:3080/posts", {mode: 'cors', method: 'GET'})
           .then(res => res.json())
           .then(
@@ -58,7 +59,7 @@ class Posts extends React.Component {
         } else if (!isLoaded) {
             return <div>Loading...</div>
         } else if (!user) {
-            return <div class="main">Please log in</div>
+            return <div className="loggedIn">Please log in</div>
         } else {
             return (
                 <div className="main">
