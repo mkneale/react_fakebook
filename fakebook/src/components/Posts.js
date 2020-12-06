@@ -1,4 +1,4 @@
-import React, { localStorage, useState } from 'react';
+import React from 'react';
 import SinglePost from './SinglePost';
 import '../style.css';
 
@@ -27,7 +27,7 @@ class Posts extends React.Component {
         var userJSON = {user_id: JSON.parse(retrievedObject)._id, user_name: JSON.parse(retrievedObject).name};
         this.setState({user_id: userJSON.user_id});
         this.setState({user_name: userJSON.user_name});
-        this.setState({user: JSON.stringify(userJSON)})
+        this.setState({user: JSON.stringify(userJSON)});
       }
           fetch("http://localhost:3080/posts", {mode: 'cors', method: 'GET'})
           .then(res => res.json())
@@ -68,7 +68,7 @@ class Posts extends React.Component {
                 <div className="postBackground">
                     <ul>
                         {items.map(post => (
-                         < SinglePost post={post} user_id={user_id} user_name={user_name}/>
+                         <SinglePost post={post} user_id={user_id} user_name={user_name}/>
                         ))}
                     </ul>
                 </div>

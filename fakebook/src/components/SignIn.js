@@ -33,6 +33,7 @@ function SignIn() {
       .then(function(resp) { return resp.text() }) // Convert data to json
       .then(function(data) {
         if (data === "Wrong username or password.") {
+          alert(data);
           return;
         } else {
         console.log('Success', data);

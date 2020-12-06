@@ -40,8 +40,8 @@ class Like extends Component {
     render () {
 
         return (
-            <div>
-                <p>
+            <div key={this.props.post_id}>
+                <p key={this.props.post_id}>
                     Likes: {this.props.likes} &nbsp;&nbsp;
                     <Button key={this.props.post_id} variant="primary" size="sm" onClick={() => { this.likePost(this.props.post_id) }}>
                     <img src={process.env.PUBLIC_URL + 'thumbs_up_icon.png'} width='25px' height='25px' alt="thumbs-up-icon"/>  Like

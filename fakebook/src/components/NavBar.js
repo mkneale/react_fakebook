@@ -1,7 +1,7 @@
 import '../style.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import React, {useState} from 'react';
+import React from 'react';
 
 class NavBarComponent extends React.Component {
 
